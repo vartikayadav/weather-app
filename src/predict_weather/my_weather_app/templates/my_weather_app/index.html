@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container col-lg-4" style="margin-left:500px;">
+<br>
+<form class="" action="{% url 'add' %}" method="post">{% csrf_token %}
+<div style="" >
+  {{ form.as_p }}
+ <input type="submit" style=""  name="" value="Click to view">
+ </div>
+</form>
+<br>
+{% for city in weather_data %}
+
+<div style="" class="box">
+
+<p>city name - {{city.city}}</p>
+<p>city temp - {{city.temperature}}</p>
+<p>city description- {{city.description}}</p>
+<img src="http://openweathermap.org/img/w/{{city.icon}}.png" alt="">
+</div>
+<hr>
+
+
+{% endfor %}
+</div>
+{% endblock %}
